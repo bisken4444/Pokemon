@@ -11,7 +11,7 @@ public class FileIO {
 	
 	// writes a list of pokemon to a file
 	public static void exportPokeList(ArrayList<Pokemon> pokeList) throws IOException {
-		PrintStream fileStream = new PrintStream(new File("pokedex.txt"));
+		PrintStream fileStream = new PrintStream(new File("output.txt"));
 		for (Pokemon str : pokeList) {
 			fileStream.println(str);
 		}

@@ -17,11 +17,13 @@ class PokedexTest {
 	void PokedexTest1() throws IOException {
 		
 		Pokedex ash = new Pokedex(FileIO.readPokeFile());
-		
-		FileIO.exportPokeList(ash.getPokedex(),"pokedex.txt");
-		FileIO.exportPokeList(ash.listTypes("Fire"),"Fire.txt");
-		FileIO.exportPokeList(ash.listTypes("Water"),"Water.txt");
-		FileIO.exportPokeList(ash.listTypes("Grass"),"Grass.txt");
+		for (Pokemon str : ash.getPokedex()) {
+			System.out.println(str.getType1());
+		}
+	//	FileIO.exportPokeList(ash.getPokedex(),"pokedex.csv");
+		//FileIO.exportPokeList(ash.listTypes("Fire"),"Fire.txt");
+	//	FileIO.exportPokeList(ash.listTypes("Water"),"Water.csv");
+		//FileIO.exportPokeList(ash.listTypes("Grass"),"Grass.csv");
 	}
 
 

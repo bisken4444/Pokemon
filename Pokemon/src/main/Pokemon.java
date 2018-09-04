@@ -1,11 +1,13 @@
 package main;
 
+import enums.PokeType;
+
 public class Pokemon {
 	
 	private String numb;
 	private String name;	
-	private String type1;	
-	private String type2;	
+	private PokeType type1;	
+	private PokeType type2;	
 	private String total;	
 	private String hp;
 	private String attack;	
@@ -15,22 +17,23 @@ public class Pokemon {
 	private String speed;	
 	private String generation;	
 	private String legendary;
-	
+	private String pokeString;
 	
 	public Pokemon(String name, String type1, String hp) {
 		this.name = name;
-		this.type1 = type1;
+		this.type1 = PokeType.valueOf(type1.toUpperCase());
 		this.hp = hp;
-		this.type2 = "";
+		this.type2 = PokeType.NONE;
 	}
 
 	public Pokemon(String pokeString) {
+		this.pokeString = pokeString;
 		String[] st = pokeString.split(","); 
         int i=0;
         this.numb = st[i++];
     	this.name = st[i++];
-    	this.type1 = st[i++];
-    	this.type2 = st[i++];
+    	this.type1 = PokeType.valueOf(st[i++].toUpperCase());
+    	this.type2 = PokeType.valueOf(st[i++].toUpperCase());
     	this.total = st[i++];
     	this.hp = st[i++];
     	this.attack = st[i++];
@@ -39,14 +42,14 @@ public class Pokemon {
     	this.def = st[i++];
     	this.speed = st[i++];
     	this.generation = st[i++];
-    	this.legendary = st[i++];
+    	this.legendary = st[i];
 	}
 
 	public String toString() {
-		if (this.type2.equals("")) {
+		if (this.pokeString == null) {
 			return this.name + " : " + this.type1 + " : HP-" + this.hp;
 		} else {
-			return this.name + " : " + this.type1 + " : " + this.type2 + " : HP-" + this.hp;
+			return this.pokeString;
 		}
 	}
 
@@ -58,11 +61,11 @@ public class Pokemon {
 		return name;
 	}
 
-	public String getType1() {
+	public PokeType getType1() {
 		return type1;
 	}
 
-	public String getType2() {
+	public PokeType getType2() {
 		return type2;
 	}
 
@@ -100,6 +103,10 @@ public class Pokemon {
 
 	public String getLegendary() {
 		return legendary;
+	}
+
+	public String getPokeString() {
+		return pokeString;
 	}
 	
 	
