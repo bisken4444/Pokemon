@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import enums.PokeType;
 import main.Pokemon;
 
 class PokemonTest {
@@ -15,7 +14,7 @@ class PokemonTest {
 		System.out.println(Ivy);
 		assertEquals(Ivy.getName(),"Ivysaur");
 		assertEquals(Ivy.getHp(),"60");
-		assertEquals(Ivy.getType1(),PokeType.GRASS);	
+		assertEquals(Ivy.getType1(),"Grass");	
 	}
 	
 	@Test
@@ -26,8 +25,6 @@ class PokemonTest {
 		assertEquals(Ven.getName(),"Venusaur");
 		assertEquals(Ven.getTotal(),"525");
 		assertEquals(Ven.getGeneration() ,"1");
-		assertEquals(Ven.getType1(),PokeType.GRASS);
-		assertEquals(Ven.getType1(),PokeType.POISON);
 	}
 
 }
